@@ -41,6 +41,7 @@ function App() {
   const {isLoggedIn} = useSelector((state:RootStateOrAny) => state.common);
   useEffect(() => {
     const isLoggedIn = window.localStorage.getItem("access_token");
+    console.log(isLoggedIn, "window.localStroage getItem access_token")
     // check login 로직 추가
     dispatch(commonActions.setIsLoggedIn(true));
   }, []);
@@ -48,7 +49,7 @@ function App() {
     <React.Fragment>
       <GlobalFontStyle />
       <GlobalStyle />
-      <div> 로그인 ? : {isLoggedIn}</div>
+      <div> redux common module  isLoggedIn state ? : {isLoggedIn.toString()}</div>
       <Router history={history}>
         {/* <Switch>
           <Route path="/" exact component={SwitchContainer} />
