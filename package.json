@@ -29,7 +29,7 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "add:typescript": "yarn add typescript @types/node @types/react @types/react-dom @types/jest --dev",
+    "add:typescript": "yarn add typescript @types/node @types/react @types/react-dom @types/jest --dev"
   },
   "eslintConfig": {
     "extends": [
