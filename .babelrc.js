@@ -9,6 +9,7 @@ const plugins = [
           "@assets": "./assets",
           "@redux": "./redux",
           "@components": "./common/components",
+          "@common": "./common",
           "@utils": "./utils",
         }
       }

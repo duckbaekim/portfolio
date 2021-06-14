@@ -5,23 +5,21 @@ import { Router, Route, Switch } from "react-router-dom";
 import {createBrowserHistory} from 'history';
 import {useDispatch, useSelector, RootStateOrAny} from 'react-redux';
 import { actions as commonActions } from '@redux/common/state';
+import Header from '@components/Header';
+import fontcss from "@assets/font/font.css";
 
 const GlobalFontStyle = createGlobalStyle`
 `;
 const GlobalStyle = createGlobalStyle`
   ${reset};
-  @font-face {
-    font-family: 'S-CoreDream-3Light';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  };
+  ${fontcss};
   * {
     box-sizing : border-box;
     text-decoration: none;
     font-family: 'S-CoreDream-3Light' !important;
   }
   body {
+    font-family: "Noto Sans KR", "Malgun Gothic" !important;
     background-color: rgb(249, 249, 249);
   }
   section {
@@ -49,7 +47,7 @@ function App() {
     <React.Fragment>
       <GlobalFontStyle />
       <GlobalStyle />
-      <div> redux common module  isLoggedIn state ? : {isLoggedIn.toString()}</div>
+      <Header />
       <Router history={history}>
         {/* <Switch>
           <Route path="/" exact component={SwitchContainer} />

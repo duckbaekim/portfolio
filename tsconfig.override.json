@@ -10,7 +10,8 @@
         "@assets/*": ["./assets/*"],
         "@store":["./redux/store.ts"],
         "@redux/*": ["./redux/*"],
-        "@components/*": ["./components/*"],
+        "@components/*": ["./common/components/*"],
+        "@common/*": ["./common/*"],
         "@utils/*": ["./utils/*"]
       }
   }
