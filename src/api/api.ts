@@ -35,7 +35,7 @@ export const callApiErrorReport = (error: any) => {
   const {name, contact, buyerId, list, ordered} = common;
 
   return axios.post(
-    SLACKURL.url,
+    SLACKURL.shop,
     {
       channel: 'shopping_front_error_log',
       text: `
