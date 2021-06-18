@@ -1,7 +1,6 @@
-
 import axios from 'axios';
-import store from '~/redux/store';
 import actions from '@redux/common/state';
+import store from '~/redux/store';
 
 // const state = store.getState();
 
@@ -22,7 +21,7 @@ instance.interceptors.request.use(async (request) => {
   // console.log(request);
   // token 체크
   const access_token = window.localStorage.getItem('access_token');
-  //fcmKey 설정
+  // fcmKey 설정
   // request.headers['access-control-allow-origin'] = '*';
   if (access_token) {
     request.headers.Authorization = `Bearer ${access_token}`;
@@ -92,18 +91,16 @@ const refreshToken = async () => {
         window.localStorage.setItem('id', String(id));
         // console.log(data.access_token, 'access_token 갱신');
         return data.access_token;
-      } else {
-        window.localStorage.removeItem('access_token');
-        window.localStorage.removeItem('refresh_token');
-        window.localStorage.removeItem('id');
-        return null;
       }
-    } else {
-        window.localStorage.removeItem('access_token');
-        window.localStorage.removeItem('refresh_token');
-        window.localStorage.removeItem('id');
+      window.localStorage.removeItem('access_token');
+      window.localStorage.removeItem('refresh_token');
+      window.localStorage.removeItem('id');
       return null;
     }
+    window.localStorage.removeItem('access_token');
+    window.localStorage.removeItem('refresh_token');
+    window.localStorage.removeItem('id');
+    return null;
   } catch (err) {
     window.localStorage.removeItem('access_token');
     window.localStorage.removeItem('refresh_token');

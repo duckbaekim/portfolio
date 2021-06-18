@@ -7,27 +7,40 @@ import {useDispatch, useSelector, RootStateOrAny} from 'react-redux';
 import { actions as commonActions } from '@redux/common/state';
 import Header from '@components/Header';
 import fontcss from "@assets/font/font.css";
+import DetailContainer from './detail/Container';
+import OrderListContainer from './orderList/Container';
 
 const GlobalFontStyle = createGlobalStyle`
+  * {
+    text-decoration: none;
+  }
+  body {
+    font-family: "Noto Sans KR", "Malgun Gothic" !important;
+    font-weight: 300;
+  }
 `;
 const GlobalStyle = createGlobalStyle`
   ${reset};
   ${fontcss};
   * {
     box-sizing : border-box;
-    text-decoration: none;
-    font-family: 'S-CoreDream-3Light' !important;
-  }
-  body {
-    font-family: "Noto Sans KR", "Malgun Gothic" !important;
-    background-color: rgb(249, 249, 249);
   }
   section {
     padding-top: 80px;
   }
+  .MuiMobileStepper-dotActive {
+      background-color: rgb(255, 225, 0) !important;
+  }
+  .MuiMobileStepper-dot {
+    margin: 0 6px !important;
+  }
+  .MuiMobileStepper-root {
+    background: transparent !important;
+  }
 `;
+// max-width: 768까지 지원
 const AppContainer = styled.div`
-  max-width: 1300px;
+  max-width: 768px;
   margin: 0 auto;
   position: relative;
 `;
@@ -47,17 +60,26 @@ function App() {
     <React.Fragment>
       <GlobalFontStyle />
       <GlobalStyle />
-      <Header />
       <Router history={history}>
+      <Header />
         {/* <Switch>
           <Route path="/" exact component={SwitchContainer} />
         </Switch> */}
         <AppContainer>
           <Switch>
-            {/* <Route
-              path="/place/:contenttypeid/:contentid"
-              component={DetailPage}
-            /> */}
+            <Route
+              path="/detail/:id"
+              component={DetailContainer}
+              exact
+            />
+            <Route
+              path="/order/list"
+              component={OrderListContainer}
+            />
+            <Route
+              path="/order"
+              component={OrderListContainer}
+            />
           </Switch>
         </AppContainer>
         {/* <Route path="/" exact component={Footer} /> */}

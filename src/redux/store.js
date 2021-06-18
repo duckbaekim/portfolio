@@ -13,7 +13,7 @@ const store = createStore(
   process.env.NODE_ENV === "development" ?
     composeWithDevTools(applyMiddleware(sagaMiddleware, logger))
     :
-    applyMiddleware(sagaMiddleware, logger)
+    applyMiddleware(sagaMiddleware)
 );
 
 sagaMiddleware.run(rootSaga);

@@ -6,6 +6,7 @@ import smallLogoImage from "@assets/common/smallLogo.png";
 import xsmallLogoImage from "@assets/common/xsmallLogo.png";
 import bigHamburgerImage from "@assets/common/bigHamburger.png";
 import smallHamburgerImage from "@assets/common/smallHamburger.png";
+import { useHistory } from "react-router-dom";
 
 /**
  * GNB 영역 styled-components
@@ -82,7 +83,7 @@ const GNBNaviLinkWrap = styled.div`
   }
 `;
 const GNBNaviLink = styled.div`
-  width: 15%;
+  width: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,38 +99,25 @@ const GNBNaviLink = styled.div`
       font-size: 11px;
     }
   }
-  @media (max-width: 1024px) {
-    display: none;
-  }
 `;
-const GNBHamburger = styled.div`
-  display: none;
-  @media (max-width: 1024px) {
-    display: block;
-    width: 24px;
-    height: 24px;
-    background-image: url(${bigHamburgerImage});
-    background-size: cover;
-  }
-  @media (max-width: 768px) {
-    width: 20px;
-    height: 20px;
-    background-image: url(${smallHamburgerImage});
-  }
-`;
+
 export default function Header() {
+  const history = useHistory();
+  // 상품리스트 추가시 하드코딩된 path 수정필요
   const naviLink = [
     {
       name: "주문하기",
-      link: "/order",
+      path: "/detail/1",
     },
     {
       name: "주문내역",
-      link: "/order/list",
+      path: "/order/list",
     }
   ];
 
-
+  const link = (path: string) => {
+    history.push(path);
+  }
 
   return (
     <GNB>
@@ -138,11 +126,11 @@ export default function Header() {
       </GNBLogoWrap>
       <GNBNaviWrap>
         <GNBNaviLinkWrap>
-          <GNBHamburger />
           {naviLink.map((el: any, i: number) => {
             return (
               <GNBNaviLink
                 key={`navLink_${el}_${i}`}
+                onClick={() => link(el.path)}
               >
                 <span>{el.name}</span>
               </GNBNaviLink>
