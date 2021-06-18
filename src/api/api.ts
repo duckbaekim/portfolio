@@ -1,5 +1,5 @@
 import axios from './axios';
-
+import SLACKURL from '../../slackurl.json';
 // 이메일 중복 확인
 // export const callApiCheckEmail = (email: string) =>
 //   axios.post('/account/checkEmail', {email});
@@ -35,7 +35,7 @@ export const callApiErrorReport = (error: any) => {
   const {name, contact, buyerId, list, ordered} = common;
 
   return axios.post(
-    'https://hooks.slack.com/services/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',
+    SLACKURL.url,
     {
       channel: 'shopping_front_error_log',
       text: `
