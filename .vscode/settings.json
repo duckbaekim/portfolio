@@ -1,0 +1,30 @@
+{
+    "editor.suggestSelection": "first",
+    "prettier.printWidth": 80,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "emmet.showExpandedAbbreviation": "never",
+    "editor.formatOnSave": true,
+    "workbench.startupEditor": "welcomePage",
+    "workbench.editor.enablePreview": false,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "extensions.ignoreRecommendations": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "settingsSync.ignoredExtensions": [
+    ],
+    "editor.accessibilitySupport": "off",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "json.maxItemsComputed": 50000,
+    "[json]": {
+
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+        "editor.suggest.insertMode": "replace"
+    },
+    "json.schemas": [
+    
+    ]
+}
