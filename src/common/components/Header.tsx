@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
-import styled from "styled-components";
-import logoImage2 from "@assets/common/logo_2.png";
-import mediumLogoImage from "@assets/common/mediumLogo.png";
-import smallLogoImage from "@assets/common/smallLogo.png";
-import xsmallLogoImage from "@assets/common/xsmallLogo.png";
-import bigHamburgerImage from "@assets/common/bigHamburger.png";
-import smallHamburgerImage from "@assets/common/smallHamburger.png";
-import { useHistory } from "react-router-dom";
+import {useEffect, useState} from 'react';
+import styled from 'styled-components';
+import logoImage2 from '@assets/common/logo_2.png';
+import mediumLogoImage from '@assets/common/mediumLogo.png';
+import smallLogoImage from '@assets/common/smallLogo.png';
+import xsmallLogoImage from '@assets/common/xsmallLogo.png';
+import bigHamburgerImage from '@assets/common/bigHamburger.png';
+import smallHamburgerImage from '@assets/common/smallHamburger.png';
+import {useHistory} from 'react-router-dom';
 
 /**
  * GNB 영역 styled-components
@@ -104,20 +104,11 @@ const GNBNaviLink = styled.div`
 export default function Header() {
   const history = useHistory();
   // 상품리스트 추가시 하드코딩된 path 수정필요
-  const naviLink = [
-    {
-      name: "주문하기",
-      path: "/detail/1",
-    },
-    {
-      name: "주문내역",
-      path: "/order/list",
-    }
-  ];
+  const naviLink: any[] = [];
 
   const link = (path: string) => {
     history.push(path);
-  }
+  };
 
   return (
     <GNB>
@@ -130,8 +121,7 @@ export default function Header() {
             return (
               <GNBNaviLink
                 key={`navLink_${el}_${i}`}
-                onClick={() => link(el.path)}
-              >
+                onClick={() => link(el.path)}>
                 <span>{el.name}</span>
               </GNBNaviLink>
             );

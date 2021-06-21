@@ -1,9 +1,8 @@
-import { combineReducers } from "redux";
+import {combineReducers} from 'redux';
 import common from '@redux/common/state';
 
-
 const rootReducer = combineReducers({
-    common,
+  common,
 });
- 
+
 export default rootReducer;

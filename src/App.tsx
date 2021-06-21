@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react';
-import styled, { createGlobalStyle, css } from "styled-components";
-import reset from "styled-reset";
-import { Router, Route, Switch } from "react-router-dom";
+import React, {useEffect} from 'react';
+import styled, {createGlobalStyle, css} from 'styled-components';
+import reset from 'styled-reset';
+import {Router, Route, Switch} from 'react-router-dom';
 import {createBrowserHistory} from 'history';
-import {useDispatch, useSelector, RootStateOrAny} from 'react-redux';
-import { actions as commonActions } from '@redux/common/state';
+import {useDispatch, useSelector} from 'react-redux';
+import {actions as commonActions} from '@redux/common/state';
 import Header from '@components/Header';
-import fontcss from "@assets/font/font.css";
-import DetailContainer from './detail/Container';
-import OrderListContainer from './orderList/Container';
+import SideNavigator from '@common/components/SideNavigator';
+import fontcss from '@assets/font/font.css';
 
 const GlobalFontStyle = createGlobalStyle`
   * {
@@ -38,53 +37,31 @@ const GlobalStyle = createGlobalStyle`
     background: transparent !important;
   }
 `;
-// max-width: 768까지 지원
+
 const AppContainer = styled.div`
-  max-width: 768px;
-  margin: 0 auto;
-  position: relative;
+  margin-top: 60px;
+  width: 100%;
+  display: flex;
 `;
 
 // useHistory 훅을 사용하기위해 createBrowserHistory로 생성한 객체를 Router객체에 삽입
 const history = createBrowserHistory();
 function App() {
   const dispatch = useDispatch();
-  const {isLoggedIn} = useSelector((state:RootStateOrAny) => state.common);
-  useEffect(() => {
-    const isLoggedIn = window.localStorage.getItem("access_token");
-    console.log(isLoggedIn, "window.localStroage getItem access_token")
-    // check login 로직 추가
-    dispatch(commonActions.setIsLoggedIn(true));
-  }, []);
+  useEffect(() => {}, []);
   return (
-    <React.Fragment>
+    <>
       <GlobalFontStyle />
       <GlobalStyle />
       <Router history={history}>
-      <Header />
-        {/* <Switch>
-          <Route path="/" exact component={SwitchContainer} />
-        </Switch> */}
+        <Header />
+        <SideNavigator />
         <AppContainer>
-          <Switch>
-            <Route
-              path="/detail/:id"
-              component={DetailContainer}
-              exact
-            />
-            <Route
-              path="/order/list"
-              component={OrderListContainer}
-            />
-            <Route
-              path="/order"
-              component={OrderListContainer}
-            />
-          </Switch>
+          <Switch />
         </AppContainer>
         {/* <Route path="/" exact component={Footer} /> */}
       </Router>
-    </React.Fragment>
+    </>
   );
 }
 

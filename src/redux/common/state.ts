@@ -4,19 +4,19 @@ export const types = {
   // 알림 창
   REQUEST_ALERT: 'common/REQUEST_ALERT',
   SET_ALERT: 'common/SET_ALERT',
-  
+
   // 로그인 상태
   SET_ISLOGGEDIN: 'common/SET_ISLOGGEDIN',
 
   // 주문자 정보
-  REQUEST_BUYERID: "common/REQUEST_BUYERID",
-  SET_NAME: "common/SET_NAME",
-  SET_CONTACT: "common/SET_CONTACT",
-  SET_BUYERID: "common/SET_BUYERID",
+  REQUEST_BUYERID: 'common/REQUEST_BUYERID',
+  SET_NAME: 'common/SET_NAME',
+  SET_CONTACT: 'common/SET_CONTACT',
+  SET_BUYERID: 'common/SET_BUYERID',
 
   // 주문 정보
-  REQUEST_ORDER_LIST: "common/REQUEST_ORDER_LIST",
-  SET_ORDER_LIST: "common/SET_ORDER_LIST",
+  REQUEST_ORDER_LIST: 'common/REQUEST_ORDER_LIST',
+  SET_ORDER_LIST: 'common/SET_ORDER_LIST',
 
   // 주문하기
   REQUEST_ORDER: 'common/REQUEST_ORDER',
@@ -83,24 +83,24 @@ export const actions = {
   }),
 };
 export const INITIAL_STATE = {
-  name: "",
-  contact: "",
-  buyerId: "",
+  name: '',
+  contact: '',
+  buyerId: '',
   alert: {
     open: false,
     content: '',
   },
   list: [],
   ordered: {
-    orderNum: "",
+    orderNum: '',
     buyerId: 0,
     addressId: 0,
     productId: 0,
     productNum: 0,
     deliveryFee: 0,
     totalPrice: 0,
-    payStatus: "",
-    id: 0
+    payStatus: '',
+    id: 0,
   },
 };
 

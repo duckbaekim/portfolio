@@ -5,7 +5,5 @@ import store from '@redux/store';
 import {actions as commonActions} from '@redux/common/state';
 
 export default function openGlobalAlert(message: string) {
-  store.dispatch(
-    commonActions.requestAlert({open: true, content: message}),
-  );
+  store.dispatch(commonActions.requestAlert({open: true, content: message}));
 }

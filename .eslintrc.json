@@ -9,7 +9,6 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "airbnb",
     "plugin:prettier/recommended"
   ],
   "settings": {
@@ -34,6 +33,8 @@
   },
   "plugins": ["react", "react-hooks", "prettier"],
   "rules": {
+    "no-unused-vars": 1,
+    "no-empty": 1,
     "import/extensions": "off",
     "react/react-in-jsx-scope": 0,
     "react/prefer-stateless-function": 0,
