@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+      "strict": false,
+      "baseUrl": "./src",
+      "allowJs": true,
+      "noEmitOnError": true,
+      "paths": {
+        "~/*": ["./*"],
+        "@api/*": ["./api/*"],
+        "@assets/*": ["./assets/*"],
+        "@store":["./redux/store.ts"],
+        "@redux/*": ["./redux/*"],
+        "@components/*": ["./common/components/*"],
+        "@common/*": ["./common/*"],
+        "@utils/*": ["./utils/*"]
+      }
+  }
+}
